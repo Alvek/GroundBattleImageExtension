@@ -12,6 +12,11 @@ Mod will allow modders to add separate troop ground images.
 3.  Adjust GroundImages.xml to use your  images (TroopDefinitonId and GroundImageFileName)
 4.  Run game using method you created in step 2 (run steam or use shortcut\bat)
 
+# Save files and missing images
+
+Mod will create separate file with settings used during game. If you load game without such file mod will use current settings in mod folder.
+If no image found for GroundImageFileName then original ImageFilename will be used instead.
+
 # Issues
 
 DW2 doesn't support code mods from workshop or mods folder fully, so you can't enabled them via Modifications menu in game (enabling\disabling does nothing for code mods) right now.
