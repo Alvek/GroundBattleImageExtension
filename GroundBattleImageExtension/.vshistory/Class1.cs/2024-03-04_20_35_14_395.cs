@@ -1,0 +1,4 @@
+﻿namespace DW2TroopsGroundBattleImage
+{
+    
+}
