@@ -7,9 +7,9 @@ Mod will allow modders to add separate troop ground images.
 1. Download current release
 2. Copy mod content to "DW2\mods\" folder
 3. Add parameter to game with one of the folowing methods:
-  - In Steam library open DW2 properties and add launch parameters: --low-level-inject mods\GroundBattleImageExtension\GroundBattleImageExtension.dll!GroundBattleImageExtension.Preloader.Init
-  - Create shortcut to exe and add parameters to Target like this (replace path to your DW2 folder): "D:\Games\Distant Worlds 2\DistantWorlds2.exe" --low-level-inject "d:\Games\Distant Worlds 2\mods\GroundBattleImageExtension\GroundBattleImageExtension.dll!GroundBattleImageExtension.Preloader.Init"
-  - Create .bat file that runs the game, something like this (replace path to your DW2 folder):"D:\Games\Distant Worlds 2\DistantWorlds2.exe" --low-level-inject "d:\Games\Distant Worlds 2\mods\GroundBattleImageExtension\GroundBattleImageExtension.dll!GroundBattleImageExtension.Preloader.Init"
+  - In Steam library open DW2 properties and add launch parameters: --low-level-inject mods\GroundBattleImageExtension\GBIE.dll!Mod.Init
+  - Create shortcut to exe and add parameters to Target like this (replace path to your DW2 folder): "D:\Games\Distant Worlds 2\DistantWorlds2.exe" --low-level-inject "mods\GroundBattleImageExtension\GBIE.dll!Mod.Init"
+  - Create .bat file that runs the game, something like this (replace path to your DW2 folder):"D:\Games\Distant Worlds 2\DistantWorlds2.exe" --low-level-inject "mods\GroundBattleImageExtension\GBIE.dll!Mod.Init"
 3.  Adjust GroundImages.xml to use your  images (TroopDefinitonId and GroundImageFileName)
 4.  Run game using method you created in step 2 (run steam or use shortcut\bat)
 
