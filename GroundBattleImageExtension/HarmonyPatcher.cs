@@ -15,6 +15,16 @@ using Stride.Core;
 using Stride.Core.Assets;
 using Stride.Core.Storage;
 
+
+
+public static class Mod
+{
+    public static void Init()
+    {
+        GroundBattleImageExtension.Preloader.Init();
+    }
+}
+
 namespace GroundBattleImageExtension
 {
     public class Preloader
@@ -74,7 +84,7 @@ namespace GroundBattleImageExtension
     {
         public static void Postfix()
         {
-            Core.ReplaceOriginalTroopDefinitionInstanses();            
+            Core.ReplaceOriginalTroopDefinitionInstanses();
             Core.LoadGroundImageSettingsFromStream();
             Core.LoadGroundImages();
         }
