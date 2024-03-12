@@ -148,19 +148,18 @@ namespace GroundBattleImageExtension
         }
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            Troop troopClass = new Troop(null);
-            TroopDefinitionExt troopDefClass = new TroopDefinitionExt(new TroopDefinition());
+            //Troop troopClass = new Troop(null);
+            //TroopDefinitionExt troopDefClass = new TroopDefinitionExt(new TroopDefinition());
 
             var codes = new List<CodeInstruction>(instructions);
             for (var i = 0; i < codes.Count; i++)
             {
-                if (codes[i].Calls(GetMethodInfo(troopClass.GetImage)))
+                if (codes[i].Calls(GetMethodInfo(typeof(Troop), nameof(Troop.GetImage))))
                 {
-
-                    codes[i] = CodeInstruction.Call(typeof(Troop), troopClass.GetType().GetProperty(nameof(troopClass.Definition)).GetGetMethod().Name, null, null);
+                    codes[i] = CodeInstruction.Call(typeof(Troop), typeof(Troop).GetProperty(nameof(Troop.Definition)).GetGetMethod().Name, null, null);
                     //codes[i] = CodeInstruction.Call(typeof(Troop), nameof(DistantWorlds.Types.Troop.Definition), null, null);
                     //codes.Insert(i + 1, new CodeInstruction(OpCodes.Isinst, typeof(TroopDefinitionExt)));
-                    codes.Insert(i + 1, new CodeInstruction(OpCodes.Callvirt, GetMethodInfo(troopDefClass.GetGroundImage)));
+                    codes.Insert(i + 1, new CodeInstruction(OpCodes.Callvirt, GetMethodInfo(typeof(TroopDefinitionExt), nameof(TroopDefinitionExt.GetGroundImage))));
 
                     //codes[i] = CodeInstruction.Call(typeof(Troop), troopClass.GetType().GetProperty(nameof(troopClass.Definition)).GetGetMethod().Name, null, null);
                     ////codes[i] = CodeInstruction.Call(typeof(Troop), nameof(DistantWorlds.Types.Troop.Definition), null, null);
@@ -175,6 +174,10 @@ namespace GroundBattleImageExtension
         static MethodInfo GetMethodInfo(Func<Texture> method)
         {
             return method.Method;
+        }
+        static MethodInfo GetMethodInfo(Type type, string name)
+        {
+            return type.GetMethod(name);
         }
     }
 
